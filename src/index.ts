@@ -1,7 +1,9 @@
 import express, { Request, Response } from "express";
+import cors from "cors";
 import exercisesRoutes from './routes/exercisesRoutes'
 
 const app = express();
+app.use(cors())
 
 const port = process.env.PORT || 3000;
 
