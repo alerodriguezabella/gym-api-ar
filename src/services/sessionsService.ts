@@ -43,5 +43,5 @@ const piernas = {
 }
 
 export function getSession() {
-  return piernas;
+  return [piernas];
 }
