@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import exercisesRoutes from './routes/exercisesRoutes'
+import sessionsRoutes from './routes/sessionsRoutes'
 
 const app = express();
 app.use(cors())
@@ -12,6 +13,8 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/exercises', exercisesRoutes)
+
+app.use('/sessions', sessionsRoutes)
 
 
 app.listen(port, () => {
