@@ -2,22 +2,30 @@ const exercises = [
   {
       "id": 1,
       "name": "Squat",
-      "videoUrl": ""
+      "videoUrl": "",
+      "set": 4,
+     "reps": 15
   },
   {
       "id": 2,
       "name": "Lounges",
-      "videoUrl": ""
+      "videoUrl": "",
+      "set": 4,
+     "reps": 15
   },
   {
       "id": 3,
       "name": "Lat pulldown",
-      "videoUrl": ""
+      "videoUrl": "",
+      "set": 4,
+     "reps": 15
   },
   {
       "id": 4,
       "name": "Leg press",
-      "videoUrl": ""
+      "videoUrl": "",
+      "set": 4,
+     "reps": 15
   }
 ]
 
