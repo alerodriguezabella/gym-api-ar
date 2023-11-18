@@ -1,10 +1,41 @@
 import { Router, Request, Response } from "express";
-import { getExercises } from "../services/exercisesService";
+import { createExercise, deleteExercise, getExercise, getExercises } from "../services/exercisesService";
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-  res.json({data: getExercises()})
+router.get('/', async (req: Request, res: Response) => {
+  const exercises = await getExercises();
+  res.json({data: exercises})
 });
+
+router.get('/:id', async (req: Request, res: Response) => {
+  const {id} = req.params;
+  if(typeof id !== 'string'){
+    throw new Error('Invalid id')
+  }
+
+  const exercise = await getExercise(id)
+  res.json({data: exercise})
+});
+
+router.post('/', async (req: Request, res: Response) => {
+  const {name, videoUrl} = req.body;
+  if(typeof name !== 'string' || typeof videoUrl !== 'string'){
+    throw new Error('Invalid payload')
+  }
+
+  const exercise = await createExercise({name, videoUrl});
+  res.json({data: exercise})
+});
+
+router.delete('/:id', async (req: Request, res: Response) => {
+  const {id} = req.params
+  if(typeof id !== 'string'){
+    throw new Error('Invalid id')
+  }
+
+  const exercise = await deleteExercise(id)
+  res.json({data: exercise})
+})
 
 export default router;
