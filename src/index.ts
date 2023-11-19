@@ -2,7 +2,7 @@ require('dotenv').config()
 import express, { Request, Response } from "express";
 import cors from "cors";
 import exercisesRoutes from './routes/exercisesRoutes'
-import sessionsRoutes from './routes/sessionsRoutes'
+import workoutsRoutes from './routes/workoutsRoutes'
 import connectDB from './config/db'
 
 const app = express();
@@ -21,7 +21,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/exercises', exercisesRoutes)
 
-app.use('/sessions', sessionsRoutes)
+app.use('/workouts', workoutsRoutes)
 
 
 app.listen(port, () => {
