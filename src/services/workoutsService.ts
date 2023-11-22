@@ -5,7 +5,7 @@ export async function getWorkouts() {
 }
 
 export async function getWorkout(id: string) {
-  return await Workout.findById(id).populate({path: 'workoutExercises'});
+  return await Workout.findById(id).populate({path: 'workoutExercises.exercise'});
 }
 
 export async function createWorkout({name, workoutExercises}: {name: string, workoutExercises: WorkoutExerciseType[]}) {

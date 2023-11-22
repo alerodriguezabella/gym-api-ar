@@ -12,7 +12,7 @@ const workoutExerciseSchema = new Schema({
       ref: "Exercise",
       required: true,
     },
-    exerciseSet : [{ 
+    exerciseSets: [{ 
       type: exerciseSetSchema,
     }],
 });
