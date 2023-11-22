@@ -14,17 +14,17 @@ router.get('/:id', async (req: Request, res: Response) => {
     throw new Error('Invalid id')
   }
 
-  const workout = await getWorkout(id)
+  const workout = await getWorkout(id);
   res.json({data: workout})
 });
 
 router.post('/', async (req: Request, res: Response) => {
-  const {name, exercises} = req.body;
-  if(typeof name !== 'string' || !Array.isArray(exercises)){
+  const {name, workoutExercises} = req.body;
+  if(typeof name !== 'string' || !Array.isArray(workoutExercises)){
     throw new Error('Invalid payload')
   }
 
-  const workout = await createWorkout({name, exercises});
+  const workout = await createWorkout({name, workoutExercises});
   res.json({data: workout})
 });
 

@@ -1,15 +1,15 @@
-import Workout from '../models/Workout'
+import Workout, { WorkoutExerciseType } from '../models/Workout'
 
 export async function getWorkouts() {
   return await Workout.find({});
 }
 
 export async function getWorkout(id: string) {
-  return await Workout.findById(id).populate({path: 'exercises'});
+  return await Workout.findById(id).populate({path: 'workoutExercises'});
 }
 
-export async function createWorkout({name, exercises}: {name: string, exercises: string[]}) {
-  return await Workout.create({name, exercises});
+export async function createWorkout({name, workoutExercises}: {name: string, workoutExercises: WorkoutExerciseType[]}) {
+  return await Workout.create({name, workoutExercises});
 }
 
 export async function deleteWorkout(id: string) {
