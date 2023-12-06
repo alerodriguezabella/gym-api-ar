@@ -1,6 +1,6 @@
-import Workout, { WorkoutExerciseType } from '../models/Workout'
+import Workout, { WorkoutExerciseType, WorkoutType } from '../models/Workout'
 
-export async function getWorkouts() {
+export async function getWorkouts(): Promise<WorkoutType[]> {
   return await Workout.find({});
 }
 
