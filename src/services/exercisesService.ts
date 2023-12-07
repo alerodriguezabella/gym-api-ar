@@ -1,4 +1,4 @@
-import Exercise from "../models/Exercise";
+import Exercise, {ExerciseType} from "../models/Exercise";
 
 export async function getExercises() {
   return await Exercise.find({});
@@ -16,3 +16,6 @@ export async function deleteExercise(id: string) {
   return await Exercise.findByIdAndDelete(id)
 }
 
+export async function updateExercise(id: string, exercise: ExerciseType) {
+  return await Exercise.findOneAndUpdate({_id: id}, exercise, {new: true} )
+}
