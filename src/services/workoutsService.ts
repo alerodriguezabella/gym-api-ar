@@ -16,3 +16,6 @@ export async function deleteWorkout(id: string) {
   return await Workout.findByIdAndDelete(id);
 }
 
+export async function updateWorkout(id: string, workout: WorkoutType) {
+  return await Workout.findOneAndUpdate({_id: id}, workout, {new: true} )
+}
