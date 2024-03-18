@@ -1,7 +1,7 @@
 import Program, { ProgramPhaseType, ProgramType } from "../models/Program";
 
 export async function getPrograms() {
-    return await Program.find({});
+    return await Program.find({}).sort({createdAt:1});
 }
 
 export async function getProgram(id: string) {
