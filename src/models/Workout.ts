@@ -3,6 +3,8 @@ import {Schema, model, InferSchemaType} from "mongoose";
 const exerciseSetSchema = new Schema({
     repetitions: {type: Number, required: true},
     weight: {type: Number, required: true},
+    isWarmUp: {type: Boolean, required: false, default: false},
+
 });
 
 const workoutExerciseSchema = new Schema({
@@ -15,6 +17,7 @@ const workoutExerciseSchema = new Schema({
     exerciseSets: [{ 
       type: exerciseSetSchema,
     }],
+    rpe: {type: Number, required: false},
 });
 
 const workoutSchema = new Schema({
